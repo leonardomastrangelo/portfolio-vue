@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import { store } from "./store";
 import HeaderComponent from './components/HeaderComponent.vue'
 export default {
@@ -18,6 +19,20 @@ export default {
   components: {
     HeaderComponent
   },
+  methods: {
+    /**
+     * get all the tecnologies from DB
+     */
+    getAllTechnologies() {
+      axios.get(store.apiBaseUrl + 'technologies').then((res) => {
+        store.technologies = res.data.technologies
+      })
+    }
+  },
+  created() {
+    this.getAllTechnologies()
+  }
+
 }
 </script>
 
