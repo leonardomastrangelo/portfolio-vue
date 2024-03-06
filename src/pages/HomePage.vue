@@ -1,10 +1,18 @@
 <template>
-  <div>
-    <h1>Home</h1>
-  </div>
+  <section id="home">
+    <JumboHomeComponent />
+  </section>
 </template>
 
-<script setup>
+<script>
+import JumboHomeComponent from '../components/JumboHomeComponent.vue';
+export default {
+  name: 'HomePage',
+  components: {
+    JumboHomeComponent
+  }
+}
+
 
 </script>
 

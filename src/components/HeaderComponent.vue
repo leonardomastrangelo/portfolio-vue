@@ -262,7 +262,7 @@ export default {
 
 @media screen and (min-width: 992px) {
   #expanded-nav {
-    height: 95vh;
+    height: 80vh;
 
     .left-links {
       li {
