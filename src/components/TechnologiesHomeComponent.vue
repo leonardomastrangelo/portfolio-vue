@@ -1,7 +1,7 @@
 <template>
   <section id="technologies-home">
     <h2 class="my-5" ref="title" :class="{ 'visibleTitle': isVisibleTitle }">
-      technologies
+      tecnologie
     </h2>
     <div ref="techBox" class="container py-5" :class="{ 'visibleTechBox': isVisibleTech }">
       <div class="row justify-content-center">
@@ -18,6 +18,7 @@
 
 <script>
 import { store } from '@/store';
+import VanillaTilt from 'vanilla-tilt';
 export default {
   name: 'TechnologiesHomeComponent',
   data() {
@@ -41,7 +42,7 @@ export default {
           {
             root: null,
             rootMargin: "0px",
-            threshold: 0.4,
+            threshold: 0.6,
           });
       });
       observer.observe(title);
@@ -65,27 +66,33 @@ export default {
       observer.observe(tech);
     },
     initVanillaTilt() {
-      const techElements = this.$refs.tech;
-      VanillaTilt.init(techElements, {
-        max: 25,
-        speed: 400,
-        glare: true,
-        "max-glare": 0.07,
-        perspective: 1000,
-        transition: true,
-        speed: 800,
-        reset: false,
-        easing: "cubic-bezier(.03,.98,.52,.99)"
-        // altre opzioni se necessario
+      this.$nextTick(() => {
+        const techElements = this.$refs.techBox.querySelectorAll('.tech');
+        techElements.forEach(element => {
+          VanillaTilt.init(element, {
+            max: 25,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.07,
+            perspective: 1000,
+            transition: true,
+            speed: 800,
+            reset: false,
+            easing: "cubic-bezier(.03,.98,.52,.99)"
+          });
+        });
       });
-
     }
   },
   mounted() {
     this.setupObserverTitle();
     this.setupObserverTech();
     this.initVanillaTilt();
-  }
+
+    window.addEventListener('load', () => {
+      this.initVanillaTilt();
+    });
+  },
 
 }
 </script>
@@ -179,6 +186,7 @@ export default {
 
     h3 {
       color: white;
+      transform: translateZ(20px)
     }
   }
 }

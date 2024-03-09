@@ -20,16 +20,19 @@ export default {
     HeaderComponent
   },
   methods: {
-    /**
-     * get all the tecnologies from DB
-     */
+    getAllProjects() {
+      axios.get(store.apiBaseUrl + 'projects').then((res) => {
+        store.projects = res.data.projects;
+      })
+    },
     getAllTechnologies() {
       axios.get(store.apiBaseUrl + 'technologies').then((res) => {
-        store.technologies = res.data.technologies
+        store.technologies = res.data.technologies;
       })
     }
   },
   created() {
+    this.getAllProjects()
     this.getAllTechnologies()
   }
 
