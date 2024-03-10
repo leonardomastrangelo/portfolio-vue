@@ -17,7 +17,7 @@
                 <!-- carousel image -->
                 <div class="my-card__image position-relative">
                   <img class="w-100 rounded-4" :src="store.imgPath + project.preview" :alt="project.title" />
-                  <div class="logo">
+                  <div class="logo d-none d-lg-block">
                     <img :src="store.imgPath + project.logo" alt="logo">
                   </div>
                 </div>
@@ -122,10 +122,11 @@ export default {
       }, {
         root: null,
         rootMargin: "0px",
-        threshold: 0.1,
+        threshold: 0.3,
       });
       observer.observe(carousel);
     },
+
     initVanillaTilt() {
       this.$nextTick(() => {
         const cardElements = document.querySelectorAll('.my-card');
@@ -149,8 +150,8 @@ export default {
       this.initGlideJs();
       this.initVanillaTilt();
     });
-    this.setupObserverTitle();
     this.setupObserverCarousel();
+    this.setupObserverTitle();
 
   }
 }
@@ -167,14 +168,14 @@ export default {
 #carousel {
   transition: all 1s ease;
   opacity: 0;
-  scale: 1.3;
-  transform: translate(-1200px, -5px);
+  scale: 0.6;
+  transform: translateX(-200px);
 }
 
 #carousel.visibleCarousel {
   opacity: 1;
   scale: 1;
-  transform: translate(0px, 0px);
+  transform: translateX(0);
 }
 
 h2 {
