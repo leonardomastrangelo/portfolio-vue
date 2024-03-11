@@ -98,7 +98,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use '../assets/styles/partials/variables' as *;
+@use '/src/assets/styles/partials/variables' as *;
 
 #technologies-home {
   display: flex;

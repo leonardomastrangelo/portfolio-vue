@@ -49,17 +49,17 @@
         </div>
         <div class="controls" data-glide-el="controls">
           <button class="btn go-left" data-glide-dir="<">
-            <img src="../assets/img/indicator.png" alt="go-left">
+            <img src="/src/assets/img/indicator.png" alt="go-left">
           </button>
           <button class="btn go-right" data-glide-dir=">">
-            <img src="../assets/img/indicator.png" alt="go-left">
+            <img src="/src/assets/img/indicator.png" alt="go-left">
           </button>
         </div>
       </div>
     </div>
     <!-- call to action -->
     <div>
-      <router-link :to="`/`" class="butt">
+      <router-link :to="`/projects`" class="butt">
         Vedi tutti i progetti
       </router-link>
     </div>
@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import { store } from '../store.js';
+import { store } from '@/store';
 import Glide from '@glidejs/glide';
 import VanillaTilt from 'vanilla-tilt';
 export default {
@@ -158,7 +158,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use '../assets/styles/partials/variables' as *;
+@use '/src/assets/styles/partials/variables' as *;
 @import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
 
 #carousel-home {
@@ -411,4 +411,4 @@ h2.visibleTitle {
     width: 650px;
   }
 }
-</style>
+</style>../../store.js./CarouselProjectsHomeComponent.vue/index.js

@@ -130,7 +130,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use '../assets/styles/partials/variables' as *;
+@use '/src/assets/styles/partials/variables' as *;
 
 #quote-home {
   display: flex;
@@ -187,7 +187,7 @@ export default {
   }
 
   #quote-box {
-    background-image: url('../assets/img/quote-bg.jpg');
+    background-image: url('/src/assets/img/quote-bg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

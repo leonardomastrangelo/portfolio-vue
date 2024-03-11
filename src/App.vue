@@ -23,11 +23,13 @@ export default {
     getAllProjects() {
       axios.get(store.apiBaseUrl + 'projects').then((res) => {
         store.projects = res.data.projects;
+        console.log(store.projects);
       })
     },
     getAllTechnologies() {
       axios.get(store.apiBaseUrl + 'technologies').then((res) => {
         store.technologies = res.data.technologies;
+        console.log(store.technologies);
       })
     }
   },

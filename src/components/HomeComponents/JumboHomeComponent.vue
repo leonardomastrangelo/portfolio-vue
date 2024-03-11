@@ -2,8 +2,8 @@
   <section id="jumbo-home" @mousemove="parallax">
     <!-- me -->
     <div ref="me" class="me" data-value="6" :class="{ 'visibleMe': isVisibleMe }">
-      <img src="../assets/img/me.png" alt="me">
-      <img id="banner" src="../assets/img/banner.jpg" alt="banner">
+      <img src="/src/assets/img/me.png" alt="me">
+      <img id="banner" src="/src/assets/img/banner.jpg" alt="banner">
     </div>
 
     <div class="container-fluid inner px-5">
@@ -87,13 +87,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use '../assets/styles/partials/variables' as *;
+@use '/src/assets/styles/partials/variables' as *;
 
 #jumbo-home {
   width: 100%;
   height: 800px;
   position: relative;
-  background-image: url('../assets/img/landscape.jpg');
+  background-image: url('/src/assets/img/landscape.jpg');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
