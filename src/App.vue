@@ -3,12 +3,15 @@
   <HeaderComponent />
   <!-- router -->
   <router-view></router-view>
+  <!-- footer -->
+  <FooterComponent />
 </template>
 
 <script>
 import axios from "axios";
 import { store } from "./store";
-import HeaderComponent from './components/HeaderComponent.vue'
+import HeaderComponent from './components/HeaderComponent.vue';
+import FooterComponent from "./components/FooterComponent.vue";
 export default {
   name: 'App',
   data() {
@@ -17,7 +20,8 @@ export default {
     }
   },
   components: {
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   },
   methods: {
     getAllProjects() {

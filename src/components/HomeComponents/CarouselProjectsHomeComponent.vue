@@ -146,10 +146,13 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener('load', () => {
+    this.$nextTick(() => {
       this.initGlideJs();
-      this.initVanillaTilt();
-    });
+    })
+    window.addEventListener("load", () => {
+      this.initGlideJs();
+    })
+    this.initVanillaTilt();
     this.setupObserverCarousel();
     this.setupObserverTitle();
 

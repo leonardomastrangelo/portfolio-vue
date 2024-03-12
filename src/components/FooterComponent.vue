@@ -67,6 +67,7 @@ export default {
 footer {
   padding-top: 150px;
   overflow: hidden;
+  background-color: #0F0317;
 
   h3 {
     text-align: center;

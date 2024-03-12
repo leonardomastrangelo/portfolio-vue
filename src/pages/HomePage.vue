@@ -4,7 +4,6 @@
     <TechnologiesHomeComponent />
     <CarouselProjectsHomeComponent />
     <QuoteHomeComponent />
-    <FooterComponent />
   </section>
 </template>
 
@@ -13,7 +12,6 @@ import JumboHomeComponent from '../components/HomeComponents/JumboHomeComponent.
 import TechnologiesHomeComponent from '../components/HomeComponents/TechnologiesHomeComponent.vue';
 import CarouselProjectsHomeComponent from '../components/HomeComponents/CarouselProjectsHomeComponent.vue';
 import QuoteHomeComponent from '../components/HomeComponents/QuoteHomeComponent.vue';
-import FooterComponent from '../components/FooterComponent.vue';
 export default {
   name: 'HomePage',
   components: {
@@ -21,7 +19,6 @@ export default {
     TechnologiesHomeComponent,
     CarouselProjectsHomeComponent,
     QuoteHomeComponent,
-    FooterComponent
   }
 }
 

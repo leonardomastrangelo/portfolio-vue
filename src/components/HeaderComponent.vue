@@ -45,7 +45,7 @@
             <div class="thumb" exact :class="{ 'active': $route.path === link.url }">
               <i class="fa-solid fa-hand-point-right"></i>
             </div>
-            <router-link class="display-1" to="/">
+            <router-link class="display-1" :to="link.url">
               {{ link.name }}
             </router-link>
           </li>

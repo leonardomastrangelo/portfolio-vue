@@ -105,6 +105,27 @@ export default {
   padding-bottom: 170px;
 }
 
+.row:nth-child(even) {
+  flex-direction: row-reverse;
+
+  .info-container {
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  .img-container {
+    img {
+      transform: perspective(800px) rotateY(-25deg) scale(.8) rotateX(10deg);
+      transition: all .6s ease;
+
+      &:hover {
+        transform: perspective(800px) rotateY(15deg) translateY(-50px) rotateX(10deg) scale(1);
+      }
+    }
+
+  }
+}
+
 .img-container {
   width: 70%;
   padding: 100px 0;
@@ -129,7 +150,7 @@ export default {
   align-items: center;
   padding: 1rem;
   width: 88%;
-  margin: 0 auto;
+  margin-right: auto;
 
   h2 {
     border: 3px solid #14e956;
