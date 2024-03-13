@@ -12,9 +12,15 @@
             <i :class="link.icon"></i>
           </a>
         </li>
+        <li class="col-12 col-lg-6 col-xxl-3 py-5 position-relative">
+          <a href="" download="Leonard-Mastrangelo-CV.pdf" class="d-flex align-items-center" target="_blank">
+            <span class="pe-4">CV</span>
+            <i class="fa-solid fa-download"></i>
+          </a>
+        </li>
       </ul>
       <div id="mail" class="text-center py-3">
-        <a class="text-decoration-none text-light" href="mailto:">
+        <a class="text-decoration-none text-light" href="mailto:leo.mastrangelo.st@gmail.com">
           <span>mandami un'email</span>
           <i class="fas fa-envelope"></i>
         </a>
@@ -46,15 +52,10 @@ export default {
           icon: "fa-brands fa-linkedin",
         },
         {
-          name: "Email",
-          url: "/",
-          icon: "fa-solid fa-envelope",
+          name: "Instagram",
+          url: "https://www.instagram.com/_asrael.__._/",
+          icon: "fa-brands fa-instagram",
         },
-        {
-          name: "Call",
-          url: "/",
-          icon: "fa-solid fa-phone",
-        }
       ],
     }
   }
@@ -90,6 +91,8 @@ footer {
     padding: 0;
 
     a {
+      position: relative;
+      z-index: 4;
       text-decoration: none;
       color: white;
       font-size: 3.5rem;
@@ -98,15 +101,16 @@ footer {
       justify-content: space-between;
       align-items: center;
       padding: 0 20px;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        scale: 0.9;
+      }
 
       i {
         opacity: 0.4;
         font-size: 5rem;
       }
-    }
-
-    li {
-      cursor: pointer;
     }
 
     li:nth-child(1) {
@@ -118,7 +122,7 @@ footer {
     }
 
     li:nth-child(3) {
-      background-color: $email;
+      background-color: #ca37bcbe;
     }
 
     li:nth-child(4) {
@@ -139,22 +143,29 @@ footer {
   }
 
   #mail {
-    cursor: pointer;
     position: relative;
     background-color: #14BA45;
 
     a {
+      position: relative;
+      z-index: 4;
       display: flex;
       justify-content: center;
       align-items: center;
       font-size: 2rem;
       font-weight: 600;
       text-transform: uppercase;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        scale: 0.9;
+      }
 
       i {
         padding-left: 50px;
         font-size: 3.8rem;
       }
+
     }
   }
 

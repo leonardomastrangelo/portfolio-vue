@@ -1,6 +1,6 @@
 <template>
   <!-- COMPRESSED NAV -->
-  <nav ref="compressedNav" id="compressed-nav" class="py-3">
+  <nav v-if="changeNav" ref="compressedNav" id="compressed-nav" class="py-3">
     <div class="container-fluid d-flex justify-content-between align-items-center">
       <!-- logo -->
       <div class="ps-5">
@@ -16,7 +16,7 @@
   </nav>
 
   <!-- EXPANDED NAV -->
-  <nav ref="expandedNav" id="expanded-nav" class="d-none container-fluid">
+  <nav v-if="!changeNav" ref="expandedNav" id="expanded-nav" class="container-fluid">
     <div class="row h-100">
 
       <!-- left : links -->
@@ -26,6 +26,18 @@
             <a class="d-flex align-items-center" target="_blank" :href="link.url">
               <i class="pe-4" :class="link.icon"></i>
               {{ link.name }}
+            </a>
+          </li>
+          <li class="col-3 d-flex align-items-center justify-content-center">
+            <a href="mailto:leo.mastrangelo.st@gmail.com" class="d-flex align-items-center">
+              <i class="pe-4 fa-solid fa-envelope"></i>
+              Email
+            </a>
+          </li>
+          <li class="col-3 d-flex align-items-center justify-content-center">
+            <a href="" download="Leonardo-Mastrangelo-CV.pdf" class="d-flex align-items-center">
+              <i class="pe-4 fa-solid fa-download"></i>
+              CV
             </a>
           </li>
         </ul>
@@ -45,7 +57,7 @@
             <div class="thumb" exact :class="{ 'active': $route.path === link.url }">
               <i class="fa-solid fa-hand-point-right"></i>
             </div>
-            <router-link class="display-1" :to="link.url">
+            <router-link @click="showCompressedNav" class="display-1" :to="link.url">
               {{ link.name }}
             </router-link>
           </li>
@@ -73,21 +85,15 @@ export default {
           url: "https://www.linkedin.com/in/leonardo-mastrangelo-b629282b1/",
           icon: "fa-brands fa-linkedin",
         },
-        {
-          name: "Email",
-          url: "/",
-          icon: "fa-solid fa-envelope",
-        },
-        {
-          name: "Call",
-          url: "/",
-          icon: "fa-solid fa-phone",
-        }
       ],
       routerLinks: [
         {
-          name: "Home",
+          name: "Splash",
           url: "/",
+        },
+        {
+          name: "Home",
+          url: "/home",
         },
         {
           name: "About",
@@ -96,22 +102,17 @@ export default {
         {
           name: "Projects",
           url: "/projects",
-        },
-        {
-          name: "Contact",
-          url: "/contact",
         }
-      ]
+      ],
+      changeNav: true
     }
   },
   methods: {
     showExpandedNav() {
-      this.$refs.compressedNav.classList.add("d-none");
-      this.$refs.expandedNav.classList.remove("d-none");
+      this.changeNav = false;
     },
     showCompressedNav() {
-      this.$refs.expandedNav.classList.add("d-none");
-      this.$refs.compressedNav.classList.remove("d-none");
+      this.changeNav = true;
     }
   }
 
@@ -159,14 +160,21 @@ export default {
     margin: 0;
 
     a {
+      position: relative;
+      z-index: 3;
       text-decoration: none;
       transform: rotate(270deg);
       font-size: 4em;
       font-weight: 700;
       color: white;
+      transition: all 0.15s ease-in-out;
 
       i {
         opacity: 0.4;
+      }
+
+      &:hover {
+        scale: 0.9;
       }
     }
 
@@ -195,7 +203,6 @@ export default {
       opacity: 1;
       transform: translateZ(0);
       transition: opacity 0.5s;
-      cursor: pointer;
     }
 
     li:hover::after {
@@ -269,6 +276,7 @@ export default {
 
     li:hover .thumb {
       opacity: 1;
+      margin: 5px 0;
     }
   }
 }

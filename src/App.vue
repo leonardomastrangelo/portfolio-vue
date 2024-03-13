@@ -1,10 +1,10 @@
 <template>
   <!-- header -->
-  <HeaderComponent />
+  <HeaderComponent v-if="currentRoute" />
   <!-- router -->
   <router-view></router-view>
   <!-- footer -->
-  <FooterComponent />
+  <FooterComponent v-if="currentRoute" />
 </template>
 
 <script>
@@ -12,11 +12,12 @@ import axios from "axios";
 import { store } from "./store";
 import HeaderComponent from './components/HeaderComponent.vue';
 import FooterComponent from "./components/FooterComponent.vue";
+
 export default {
   name: 'App',
   data() {
     return {
-      store
+      store,
     }
   },
   components: {
@@ -28,19 +29,24 @@ export default {
       axios.get(store.apiBaseUrl + 'projects').then((res) => {
         store.projects = res.data.projects;
         console.log(store.projects);
-      })
+      });
     },
     getAllTechnologies() {
       axios.get(store.apiBaseUrl + 'technologies').then((res) => {
         store.technologies = res.data.technologies;
         console.log(store.technologies);
-      })
+      });
     },
     getAllPassions() {
       axios.get(store.apiBaseUrl + 'passions').then((res) => {
         store.passions = res.data.passions;
         console.log(store.passions);
-      })
+      });
+    }
+  },
+  computed: {
+    currentRoute() {
+      return this.$route.path !== '/';
     }
   },
   created() {
@@ -48,7 +54,6 @@ export default {
     this.getAllTechnologies();
     this.getAllPassions();
   }
-
 }
 </script>
 

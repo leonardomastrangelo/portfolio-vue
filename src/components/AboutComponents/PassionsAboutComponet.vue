@@ -251,8 +251,6 @@ export default {
       box-shadow: 0 60px 123px -25px hsla(225, 2%, 62%, .42), 0 35px 75px -35px hsla(225, 2%, 62%, .08);
     }
 
-
-
     .swiper-slide img {
       display: block;
       width: 100%;
