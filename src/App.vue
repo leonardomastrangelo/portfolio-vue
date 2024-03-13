@@ -35,11 +35,18 @@ export default {
         store.technologies = res.data.technologies;
         console.log(store.technologies);
       })
+    },
+    getAllPassions() {
+      axios.get(store.apiBaseUrl + 'passions').then((res) => {
+        store.passions = res.data.passions;
+        console.log(store.passions);
+      })
     }
   },
   created() {
-    this.getAllProjects()
-    this.getAllTechnologies()
+    this.getAllProjects();
+    this.getAllTechnologies();
+    this.getAllPassions();
   }
 
 }

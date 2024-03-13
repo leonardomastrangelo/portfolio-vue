@@ -5,4 +5,5 @@ export const store = reactive({
   imgPath: "http://localhost:8000/storage/",
   projects: [],
   technologies: [],
+  passions: [],
 });

@@ -11,8 +11,7 @@
         <div class="glide__track" data-glide-el="track">
           <ul class="glide__slides text-light">
             <li v-for="project in store.projects" class="glide__slide text-light py-5">
-              <img v-if="store.projects && store.projects.length > 0" class="bg-img"
-                :src="store.imgPath + project.preview" alt="bg" />
+              <img class="bg-img" :src="store.imgPath + project.preview" alt="bg" />
               <div class="my-card w-50 mx-auto rounded-4 bg-light my-5">
                 <!-- carousel image -->
                 <div class="my-card__image position-relative">
@@ -146,13 +145,15 @@ export default {
     }
   },
   mounted() {
-    this.$nextTick(() => {
+    if (store.projects.length > 1) {
       this.initGlideJs();
-    })
-    window.addEventListener("load", () => {
+      this.initVanillaTilt();
+    }
+
+    window.addEventListener('load', () => {
       this.initGlideJs();
-    })
-    this.initVanillaTilt();
+      this.initVanillaTilt();
+    });
     this.setupObserverCarousel();
     this.setupObserverTitle();
 
@@ -240,6 +241,7 @@ h2.visibleTitle {
   bottom: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.609);
+  border-radius: 20px;
 }
 
 .logo {
@@ -414,4 +416,4 @@ h2.visibleTitle {
     width: 650px;
   }
 }
-</style>../../store.js./CarouselProjectsHomeComponent.vue/index.js
+</style>
